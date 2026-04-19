@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solid-panes.github.io/schema/manifest.schema.json",
+  "title": "solid-panes manifest",
+  "description": "Registry entry mapping a urn:solid type to a pane + schema pair. One file per type.",
+  "type": "object",
+  "required": ["term", "pane", "status", "added"],
+  "additionalProperties": false,
+  "properties": {
+    "term": {
+      "description": "The urn:solid: identifier this entry handles.",
+      "type": "string",
+      "pattern": "^urn:solid:[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "termRegistry": {
+      "description": "URL of the term in the urn-solid registry.",
+      "type": "string",
+      "format": "uri"
+    },
+    "pane": {
+      "description": "URL of an ES module that exports a LOSOS-shaped pane (default export with render/canHandle).",
+      "type": "string",
+      "format": "uri"
+    },
+    "schema": {
+      "description": "URL of a JSON Schema describing well-formed data of this type. Optional — schema-style panes need it; bespoke panes may not.",
+      "type": "string",
+      "format": "uri"
+    },
+    "label": {
+      "description": "Human-readable label for the type (used by the pane tab).",
+      "type": "string"
+    },
+    "icon": {
+      "description": "Single-character icon (typically an emoji).",
+      "type": "string"
+    },
+    "description": {
+      "description": "One-line description of what this pane renders.",
+      "type": "string"
+    },
+    "alsoHandles": {
+      "description": "Additional urn:solid: types this pane should be invoked for. Lets one pane serve multiple closely-related types.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^urn:solid:[A-Za-z][A-Za-z0-9_-]*$" },
+      "uniqueItems": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["stable", "experimental", "deprecated"]
+    },
+    "added": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "curatedBy": {
+      "type": "string"
+    }
+  }
+}

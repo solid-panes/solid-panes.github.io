@@ -1,0 +1,58 @@
+{
+  "Article": {
+    "term": "urn:solid:Article",
+    "label": "Article",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Article/index.json",
+    "status": "stable",
+    "manifest": "/Article/index.json"
+  },
+  "Document": {
+    "term": "urn:solid:Document",
+    "label": "Document",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Document/index.json",
+    "status": "stable",
+    "manifest": "/Document/index.json"
+  },
+  "Event": {
+    "term": "urn:solid:Event",
+    "label": "Event",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Event/index.json",
+    "status": "stable",
+    "manifest": "/Event/index.json"
+  },
+  "Note": {
+    "term": "urn:solid:Note",
+    "label": "Note",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Note/index.json",
+    "status": "stable",
+    "manifest": "/Note/index.json"
+  },
+  "Person": {
+    "term": "urn:solid:Person",
+    "label": "Person",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Person/index.json",
+    "status": "stable",
+    "manifest": "/Person/index.json"
+  },
+  "VerifiableCredential": {
+    "term": "urn:solid:VerifiableCredential",
+    "label": "Credential",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/VerifiableCredential/index.json",
+    "status": "experimental",
+    "manifest": "/VerifiableCredential/index.json"
+  },
+  "Vtodo": {
+    "term": "urn:solid:Vtodo",
+    "label": "Tasks",
+    "pane": "https://losos.org/panes/todo-pane.js",
+    "schema": "https://solid-schema.github.io/Vtodo/index.json",
+    "status": "stable",
+    "manifest": "/Vtodo/index.json"
+  }
+}

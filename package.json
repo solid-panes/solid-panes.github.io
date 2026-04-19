@@ -1,0 +1,20 @@
+{
+  "name": "@solid-panes/registry",
+  "version": "0.0.1",
+  "description": "Pane-and-schema registry for urn:solid types — bridges LOSOS panes to solid-schema contracts.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.0",
+    "ajv-formats": "^3.0.1"
+  },
+  "license": "AGPL-3.0",
+  "homepage": "https://solid-panes.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solid-panes/solid-panes.github.io.git"
+  }
+}

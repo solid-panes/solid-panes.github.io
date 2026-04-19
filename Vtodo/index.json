@@ -1,0 +1,12 @@
+{
+  "term": "urn:solid:Vtodo",
+  "termRegistry": "https://urn-solid.github.io/Vtodo/",
+  "pane": "https://losos.org/panes/todo-pane.js",
+  "schema": "https://solid-schema.github.io/Vtodo/index.json",
+  "label": "Tasks",
+  "icon": "\u2705",
+  "description": "Bespoke todo pane (LOSOS native) — not the generic schema form.",
+  "status": "stable",
+  "added": "2026-04-19",
+  "curatedBy": "claude-curate-next"
+}

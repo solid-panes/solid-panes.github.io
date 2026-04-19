@@ -1,0 +1,12 @@
+{
+  "term": "urn:solid:Event",
+  "termRegistry": "https://urn-solid.github.io/Event/",
+  "pane": "https://losos.org/panes/schema-pane.js",
+  "schema": "https://solid-schema.github.io/Event/index.json",
+  "label": "Event",
+  "icon": "\ud83d\udcc5",
+  "description": "Schema-driven Event editor.",
+  "status": "stable",
+  "added": "2026-04-19",
+  "curatedBy": "claude-curate-next"
+}

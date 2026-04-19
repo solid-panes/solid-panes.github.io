@@ -1,0 +1,12 @@
+{
+  "term": "urn:solid:Note",
+  "termRegistry": "https://urn-solid.github.io/Note/",
+  "pane": "https://losos.org/panes/schema-pane.js",
+  "schema": "https://solid-schema.github.io/Note/index.json",
+  "label": "Note",
+  "icon": "\ud83d\udcdd",
+  "description": "Schema-driven Note editor.",
+  "status": "stable",
+  "added": "2026-04-19",
+  "curatedBy": "claude-curate-next"
+}
