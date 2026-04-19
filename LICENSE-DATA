@@ -1,18 +1,20 @@
-DATA LICENSE — CC0 1.0 Universal (Public Domain Dedication)
-============================================================
+DATA LICENSE — CC BY 4.0 (Creative Commons Attribution 4.0 International)
+==========================================================================
 
-The data files in this repository are dedicated to the public domain
-under CC0 1.0 Universal. To the extent possible under law, Melvin
-Carvalho has waived all copyright and related or neighboring rights
-to these files. Anyone may copy, modify, distribute, and perform them,
-even for commercial purposes, all without asking permission.
+The data files in this repository are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0). You are free to share
+and adapt the material for any purpose, including commercially, provided
+you give appropriate credit and indicate any changes.
 
-Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Suggested attribution: "solid-panes registry, https://solid-panes.github.io/,
+licensed under CC BY 4.0."
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
 
 What this covers
 ----------------
 
-CC0 applies to the solid-panes registry contents:
+CC BY 4.0 applies to the solid-panes registry contents:
 
   - <Name>/index.json              — each manifest (urn:solid type → pane + schema)
   - schema/manifest.schema.json    — meta-schema enforcing manifest shape
@@ -35,6 +37,6 @@ Why
 
 Manifests are pointers — knowing "urn:solid:Person → this pane URL +
 this schema URL" should be friction-free for any consumer to use.
-CC0 on the manifests means downstream apps and registries can republish
-them without inheriting copyleft. The actual pane code (auto-schema,
-schema-view) stays AGPL because that's where the implementation lives.
+CC BY 4.0 on the manifests means downstream apps and registries can
+republish them with attribution but without inheriting copyleft. The
+actual pane code (auto-schema, schema-view) stays AGPL.
