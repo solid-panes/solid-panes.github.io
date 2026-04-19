@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vtodo — solid-panes demo</title>
+<style>
+  body { font-family: Inter, -apple-system, sans-serif; background: #f5f5f7; margin: 0; }
+  #losos { max-width: 100% !important; }
+  .demo-banner { background: #1a1a1a; color: #ddd; padding: 14px 24px; font: 13px/1.5 monospace; }
+  .demo-banner a { color: #6366f1; }
+  .demo-banner code { color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <strong>solid-panes demo: Vtodo</strong> &middot;
+  data declares <code>"@type": "Vtodo"</code> &middot;
+  manifest points at LOSOS's bespoke <code>todo-pane.js</code> (not the generic schema-pane) &middot;
+  shows that a registry entry can route to a custom pane when warranted
+</div>
+
+<script type="application/ld+json" src="vtodo-data.jsonld"></script>
+
+<script type="module" data-pane src="https://losos.org/panes/schema-pane.js"></script>
+<script type="module" data-pane src="https://losos.org/panes/source-pane.js"></script>
+
+<div id="losos"></div>
+
+<script type="module">
+  import { autoSchema } from 'https://solid-panes.github.io/auto-schema.js'
+  const result = await autoSchema()
+  console.log('[demo] autoSchema patched', result.patched, 'island(s),', result.skipped, 'skipped')
+  await import('https://losos.org/losos/shell.js')
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>solid-panes demos</title>
+<style>
+body { font-family: Georgia, serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #2c2c2c; background: #fafaf8; }
+header a { color: #888; text-decoration: none; margin-right: 1.2rem; }
+h1 { margin-bottom: 0.25rem; }
+.subtitle { color: #888; margin-top: 0; }
+ul { list-style: none; padding: 0; }
+li { background: #fff; border: 1px solid #e5e3de; border-radius: 6px; padding: 12px 16px; margin: 0.5rem 0; }
+li a { color: #1a5276; text-decoration: none; font-weight: 600; }
+li small { color: #888; display: block; margin-top: 4px; font-family: monospace; }
+.urn { font-family: monospace; background: #f0efeb; padding: 0.1em 0.4em; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">solid-panes</a>
+  <a href="/index.json">index</a>
+  <a href="/reverse-index.json">reverse</a>
+  <a href="/auto-schema.js">auto-schema.js</a>
+</header>
+
+<h1>Demos</h1>
+<p class="subtitle">End-to-end proofs of the LION → urn-solid → solid-schema → solid-panes → LOSOS chain. Each demo loads a JSON-LD data island that declares only <code>@type</code> (no <code>$schema</code>) — auto-schema looks up the urn:solid type and patches in the matching solid-schema URL, then LOSOS renders the form.</p>
+
+<ul>
+  <li>
+    <a href="Note/">Note</a>
+    <small>Schema-driven editor for <span class="urn">urn:solid:Note</span> via the generic schema-pane</small>
+  </li>
+  <li>
+    <a href="Person/">Person</a>
+    <small>Schema-driven editor for <span class="urn">urn:solid:Person</span> via the generic schema-pane</small>
+  </li>
+  <li>
+    <a href="Vtodo/">Vtodo</a>
+    <small>Custom <code>todo-pane.js</code> for <span class="urn">urn:solid:Vtodo</span> — registry entry can route to a bespoke pane when warranted</small>
+  </li>
+</ul>
+
+<h2>What to look for</h2>
+<ol>
+  <li><strong>Open browser devtools.</strong> The console logs how many data islands auto-schema patched.</li>
+  <li><strong>View source on the data file</strong> (linked from the page) — it has <code>@type</code> but no <code>$schema</code>.</li>
+  <li><strong>The Edit tab</strong> appears auto-generated from the matching solid-schema URL.</li>
+  <li><strong>The Source tab</strong> shows the raw data, including the <code>$schema</code> field that auto-schema inserted.</li>
+</ol>
+
+</body>
+</html>
