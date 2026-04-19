@@ -39,6 +39,14 @@
     "status": "stable",
     "manifest": "/Person/index.json"
   },
+  "Tracker": {
+    "term": "urn:solid:Tracker",
+    "label": "Tasks",
+    "pane": "https://losos.org/panes/todo-pane.js",
+    "schema": "https://solid-schema.github.io/Tracker/index.json",
+    "status": "stable",
+    "manifest": "/Tracker/index.json"
+  },
   "VerifiableCredential": {
     "term": "urn:solid:VerifiableCredential",
     "label": "Credential",

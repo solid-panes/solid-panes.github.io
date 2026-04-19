@@ -1,0 +1,12 @@
+{
+  "term": "urn:solid:Tracker",
+  "termRegistry": "https://urn-solid.github.io/Tracker/",
+  "pane": "https://losos.org/panes/todo-pane.js",
+  "schema": "https://solid-schema.github.io/Tracker/index.json",
+  "label": "Tasks",
+  "icon": "\u2705",
+  "description": "Bespoke todo pane (LOSOS native) — list view with checkboxes, drag-to-reorder, sidebar of trackers. The right pane for a *collection* of tasks; single Vtodos use schema-pane via the Vtodo manifest.",
+  "status": "stable",
+  "added": "2026-04-19",
+  "curatedBy": "claude-curate-next"
+}

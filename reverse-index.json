@@ -4,6 +4,7 @@
   "urn:solid:Event": "/Event/index.json",
   "urn:solid:Note": "/Note/index.json",
   "urn:solid:Person": "/Person/index.json",
+  "urn:solid:Tracker": "/Tracker/index.json",
   "urn:solid:VerifiableCredential": "/VerifiableCredential/index.json",
   "urn:solid:Vtodo": "/Vtodo/index.json"
 }
