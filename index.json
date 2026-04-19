@@ -7,6 +7,14 @@
     "status": "stable",
     "manifest": "/Article/index.json"
   },
+  "Bookmark": {
+    "term": "urn:solid:Bookmark",
+    "label": "Bookmark",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/Bookmark/index.json",
+    "status": "stable",
+    "manifest": "/Bookmark/index.json"
+  },
   "Document": {
     "term": "urn:solid:Document",
     "label": "Document",

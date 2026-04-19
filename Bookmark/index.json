@@ -1,0 +1,12 @@
+{
+  "term": "urn:solid:Bookmark",
+  "termRegistry": "https://urn-solid.github.io/Bookmark/",
+  "pane": "https://losos.org/panes/schema-pane.js",
+  "schema": "https://solid-schema.github.io/Bookmark/index.json",
+  "label": "Bookmark",
+  "icon": "\ud83d\udd16",
+  "description": "Schema-driven Bookmark editor.",
+  "status": "stable",
+  "added": "2026-04-19",
+  "curatedBy": "claude-curate-next"
+}

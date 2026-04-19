@@ -1,5 +1,6 @@
 {
   "urn:solid:Article": "/Article/index.json",
+  "urn:solid:Bookmark": "/Bookmark/index.json",
   "urn:solid:Document": "/Document/index.json",
   "urn:solid:Event": "/Event/index.json",
   "urn:solid:Note": "/Note/index.json",
