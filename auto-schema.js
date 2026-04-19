@@ -64,7 +64,15 @@ function asUrnSolid(type) {
  * $schema if missing. Idempotent — only writes $schema when not already
  * present.
  *
- * @param {object} opts - { registryUrl?: string, fetchSchemas?: boolean }
+ * SCOPE: only patches *inline* data islands (script tags whose body is
+ * the JSON-LD). For data islands using `<script src="...">`, LOSOS's
+ * shell.js fetches the src itself after autoSchema runs and overwrites
+ * any patches — so external src files should declare $schema directly
+ * in the source file. This is consistent with how schema-pane.js looks
+ * for $schema today; autoSchema just removes the need for it on inline
+ * data.
+ *
+ * @param {object} opts - { registryUrl?: string }
  *   registryUrl: override the reverse-index URL (defaults to solid-panes.github.io)
  * @returns {Promise<{patched: number, skipped: number}>}
  */
@@ -75,6 +83,11 @@ export async function autoSchema(opts) {
   let skipped = 0
 
   for (const el of document.querySelectorAll('script[type="application/ld+json"]')) {
+    // Skip src-based islands — LOSOS shell will fetch + overwrite, so any
+    // patch we make here would be clobbered. Such files should declare
+    // $schema directly in source.
+    if (el.hasAttribute('src')) { skipped++; continue }
+
     let data
     try { data = JSON.parse(el.textContent) }
     catch { skipped++; continue }

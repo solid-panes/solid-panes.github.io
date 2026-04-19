@@ -21,7 +21,17 @@
   LOSOS schema-pane auto-renders the form
 </div>
 
-<script type="application/ld+json" src="person-data.jsonld"></script>
+<script type="application/ld+json">
+{
+  "@context": { "@vocab": "urn:solid:" },
+  "@id": "#this",
+  "@type": "Person",
+  "name": "Alice Smith",
+  "nick": "alice",
+  "email": "alice@example.org",
+  "homepage": "https://alice.example.org/"
+}
+</script>
 
 <script type="module" data-pane src="https://losos.org/panes/schema-pane.js"></script>
 <script type="module" data-pane src="https://losos.org/panes/source-pane.js"></script>

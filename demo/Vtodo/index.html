@@ -21,7 +21,18 @@
   shows that a registry entry can route to a custom pane when warranted
 </div>
 
-<script type="application/ld+json" src="vtodo-data.jsonld"></script>
+<script type="application/ld+json">
+{
+  "@context": { "@vocab": "urn:solid:" },
+  "@id": "#this",
+  "@type": "Vtodo",
+  "summary": "Wire up the cross-app interop demo",
+  "description": "Once auto-schema works end-to-end, write a second LOSOS app that reads notes from the first. That's the proof.",
+  "status": "IN-PROCESS",
+  "priority": 1,
+  "categories": ["solid", "demo"]
+}
+</script>
 
 <script type="module" data-pane src="https://losos.org/panes/schema-pane.js"></script>
 <script type="module" data-pane src="https://losos.org/panes/source-pane.js"></script>

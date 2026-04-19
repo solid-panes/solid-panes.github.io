@@ -21,8 +21,18 @@
   LOSOS schema-pane auto-renders the form
 </div>
 
-<!-- 1. Data island — only @type, no $schema. The whole point of this demo. -->
-<script type="application/ld+json" src="note-data.jsonld"></script>
+<!-- 1. Data island — inline (autoSchema currently patches inline data only; see auto-schema.js docs). -->
+<script type="application/ld+json">
+{
+  "@context": { "@vocab": "urn:solid:" },
+  "@id": "#this",
+  "@type": "Note",
+  "content": "Just shipped the auto-schema helper — write JSON, get RDF, get the form, no per-file $schema declaration needed.",
+  "summary": "Schema-driven panes via urn:solid types",
+  "published": "2026-04-19T10:00:00Z",
+  "to": ["urn:solid:Public"]
+}
+</script>
 
 <!-- 2. Declare which panes LOSOS should consider -->
 <script type="module" data-pane src="https://losos.org/panes/schema-pane.js"></script>
