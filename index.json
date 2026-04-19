@@ -1,4 +1,12 @@
 {
+  "AddressBook": {
+    "term": "urn:solid:AddressBook",
+    "label": "AddressBook",
+    "pane": "https://losos.org/panes/schema-pane.js",
+    "schema": "https://solid-schema.github.io/AddressBook/index.json",
+    "status": "stable",
+    "manifest": "/AddressBook/index.json"
+  },
   "Article": {
     "term": "urn:solid:Article",
     "label": "Article",
