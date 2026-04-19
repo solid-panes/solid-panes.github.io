@@ -20,7 +20,7 @@ LION (wire)  →  urn-solid (vocab)  →  solid-schema (contracts)  →  solid-p
 
 ## Quick-start: one-liner integration in a LOSOS app
 
-Three changes to a LOSOS HTML page:
+Four changes to a LOSOS HTML page:
 
 ```html
 <!-- 1. Inline the data with @type but no $schema -->
@@ -28,14 +28,18 @@ Three changes to a LOSOS HTML page:
 { "@id": "#this", "@type": "Note", "content": "Hello world" }
 </script>
 
-<!-- 2. Declare panes — schema-pane (Edit) and schema-view (View) -->
+<!-- 2. Login (xlogin: Nostr + Solid). Adds the Login button; LOSOS panes
+     pick up window.xlogin.authFetch automatically for pod writes. -->
+<script src="https://unpkg.com/xlogin"></script>
+
+<!-- 3. Declare panes — schema-pane (Edit) and schema-view (View) -->
 <script type="module" data-pane src="https://losos.org/panes/schema-pane.js"></script>
 <script type="module" data-pane src="https://solid-panes.github.io/schema-view.js"></script>
 <script type="module" data-pane src="https://losos.org/panes/source-pane.js"></script>
 
 <div id="losos"></div>
 
-<!-- 3. Boot: auto-schema patches $schema, then shell -->
+<!-- 4. Boot: auto-schema patches $schema, then shell -->
 <script type="module">
   import { autoSchema } from 'https://solid-panes.github.io/auto-schema.js'
   await autoSchema()
@@ -43,7 +47,7 @@ Three changes to a LOSOS HTML page:
 </script>
 ```
 
-Result: Edit + View + Source tabs, all schema-driven, zero hand-coded form.
+Result: Edit + View + Source tabs, all schema-driven, zero hand-coded form, login button bottom-right wired up for authenticated pod writes.
 
 ## Resolving a manifest
 
@@ -134,5 +138,7 @@ Each is one HTML file. View source, copy, modify the data island and the script 
 ## Related skills
 
 - `urn-solid` — vocabulary registry. Use when working with the term identifiers themselves.
-- `solid-schema` — JSON Schemas per type (if a SKILL.md exists there).
-- `losos` — the runtime. See https://losos.org/SKILL.md.
+- `solid-schema` — JSON Schemas per type. https://solid-schema.github.io/SKILL.md
+- `solid-apps` — catalog of working apps composing the stack. https://solid-apps.github.io/SKILL.md
+- `losos` — the runtime. https://losos.org/SKILL.md
+- `xlogin` — auth (Nostr + Solid). https://github.com/melvincarvalho/xlogin/blob/gh-pages/SKILL.md
