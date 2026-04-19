@@ -1,0 +1,40 @@
+DATA LICENSE — CC0 1.0 Universal (Public Domain Dedication)
+============================================================
+
+The data files in this repository are dedicated to the public domain
+under CC0 1.0 Universal. To the extent possible under law, Melvin
+Carvalho has waived all copyright and related or neighboring rights
+to these files. Anyone may copy, modify, distribute, and perform them,
+even for commercial purposes, all without asking permission.
+
+Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+What this covers
+----------------
+
+CC0 applies to the solid-panes registry contents:
+
+  - <Name>/index.json              — each manifest (urn:solid type → pane + schema)
+  - schema/manifest.schema.json    — meta-schema enforcing manifest shape
+  - corpus.jsonl                   — generated: every manifest as one record per line
+  - index.json                     — generated: name → manifest summary
+  - reverse-index.json             — generated: urn:solid type → manifest URL
+
+What this does NOT cover
+------------------------
+
+Code in this repository remains licensed under AGPL-3.0 (see LICENSE):
+
+  - scripts/*.js
+  - auto-schema.js                 — opt-in helper that patches $schema based on @type
+  - schema-view.js                 — read-only counterpart to LOSOS's schema-pane
+  - generated <Name>/index.html, top-level index.html, demo/
+
+Why
+---
+
+Manifests are pointers — knowing "urn:solid:Person → this pane URL +
+this schema URL" should be friction-free for any consumer to use.
+CC0 on the manifests means downstream apps and registries can republish
+them without inheriting copyleft. The actual pane code (auto-schema,
+schema-view) stays AGPL because that's where the implementation lives.
