@@ -49,8 +49,8 @@
   },
   "Vtodo": {
     "term": "urn:solid:Vtodo",
-    "label": "Tasks",
-    "pane": "https://losos.org/panes/todo-pane.js",
+    "label": "Task",
+    "pane": "https://losos.org/panes/schema-pane.js",
     "schema": "https://solid-schema.github.io/Vtodo/index.json",
     "status": "stable",
     "manifest": "/Vtodo/index.json"

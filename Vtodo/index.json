@@ -1,11 +1,11 @@
 {
   "term": "urn:solid:Vtodo",
   "termRegistry": "https://urn-solid.github.io/Vtodo/",
-  "pane": "https://losos.org/panes/todo-pane.js",
+  "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Vtodo/index.json",
-  "label": "Tasks",
+  "label": "Task",
   "icon": "\u2705",
-  "description": "Bespoke todo pane (LOSOS native) — not the generic schema form.",
+  "description": "Schema-driven Vtodo editor. Single tasks render via schema-pane; collections of tasks (a wf:Tracker) get LOSOS's bespoke todo-pane.",
   "status": "stable",
   "added": "2026-04-19",
   "curatedBy": "claude-curate-next"
