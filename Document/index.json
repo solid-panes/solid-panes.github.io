@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Document",
-  "termRegistry": "https://urn-solid.github.io/Document/",
+  "termRegistry": "https://urn-solid.com/Document/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Document/index.json",
   "label": "Document",

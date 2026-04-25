@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Article",
-  "termRegistry": "https://urn-solid.github.io/Article/",
+  "termRegistry": "https://urn-solid.com/Article/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Article/index.json",
   "label": "Article",

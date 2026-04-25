@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:VerifiableCredential",
-  "termRegistry": "https://urn-solid.github.io/VerifiableCredential/",
+  "termRegistry": "https://urn-solid.com/VerifiableCredential/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/VerifiableCredential/index.json",
   "label": "Credential",

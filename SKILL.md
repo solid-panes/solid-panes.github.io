@@ -84,14 +84,14 @@ Loaded as a `<script data-pane>` alongside schema-pane. LOSOS's chrome shows bot
 
 ## Adding a new type to the registry
 
-1. **Make sure the term exists in urn-solid.** If not, propose it at https://github.com/urn-solid/urn-solid.github.io/issues first.
+1. **Make sure the term exists in urn-solid.** If not, propose it at https://github.com/urn-solid/urn-solid.com/issues first.
 2. **Make sure the JSON Schema exists in solid-schema.** If not, write one at `solid-schema.github.io/<Name>/index.json` first (see `SKILL.md` there if it exists).
 3. **Write the manifest** at `solid-panes.github.io/<Name>/index.json`:
 
 ```json
 {
   "term": "urn:solid:NewType",
-  "termRegistry": "https://urn-solid.github.io/NewType/",
+  "termRegistry": "https://urn-solid.com/NewType/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/NewType/index.json",
   "label": "NewType",

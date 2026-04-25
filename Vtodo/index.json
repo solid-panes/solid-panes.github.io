@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Vtodo",
-  "termRegistry": "https://urn-solid.github.io/Vtodo/",
+  "termRegistry": "https://urn-solid.com/Vtodo/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Vtodo/index.json",
   "label": "Task",
