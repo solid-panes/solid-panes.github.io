@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Person",
-  "termRegistry": "https://urn-solid.github.io/Person/",
+  "termRegistry": "https://urn-solid.com/Person/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Person/index.json",
   "label": "Person",

@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Note",
-  "termRegistry": "https://urn-solid.github.io/Note/",
+  "termRegistry": "https://urn-solid.com/Note/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Note/index.json",
   "label": "Note",

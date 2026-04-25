@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:AddressBook",
-  "termRegistry": "https://urn-solid.github.io/AddressBook/",
+  "termRegistry": "https://urn-solid.com/AddressBook/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/AddressBook/index.json",
   "label": "AddressBook",

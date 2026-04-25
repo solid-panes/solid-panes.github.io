@@ -1,6 +1,6 @@
 # solid-panes
 
-A pane-and-schema registry for [urn:solid](https://urn-solid.github.io/) types — bridges [LOSOS](https://losos.org/) panes to [solid-schema](https://solid-schema.github.io/) contracts.
+A pane-and-schema registry for [urn:solid](https://urn-solid.com/) types — bridges [LOSOS](https://losos.org/) panes to [solid-schema](https://solid-schema.github.io/) contracts.
 
 One manifest per type, mapping a `urn:solid:` identifier to a pane URL plus an optional schema URL. LOSOS apps that opt in get auto-form rendering for any data tagged with a known type — no per-file `$schema` declaration needed.
 
@@ -9,7 +9,7 @@ One manifest per type, mapping a `urn:solid:` identifier to a pane URL plus an o
 ```json
 {
   "term": "urn:solid:Note",
-  "termRegistry": "https://urn-solid.github.io/Note/",
+  "termRegistry": "https://urn-solid.com/Note/",
   "pane": "https://losos.org/panes/schema-pane.js",
   "schema": "https://solid-schema.github.io/Note/index.json",
   "label": "Note",

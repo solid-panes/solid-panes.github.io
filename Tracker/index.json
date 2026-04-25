@@ -1,6 +1,6 @@
 {
   "term": "urn:solid:Tracker",
-  "termRegistry": "https://urn-solid.github.io/Tracker/",
+  "termRegistry": "https://urn-solid.com/Tracker/",
   "pane": "https://losos.org/panes/todo-pane.js",
   "schema": "https://solid-schema.github.io/Tracker/index.json",
   "label": "Tasks",
