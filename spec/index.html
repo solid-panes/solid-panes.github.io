@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Panes — solid-panes</title>
+<meta name="description" content="What a pane is, how a host chooses one for a subject, and what a page can always expect. A draft, written down from running code.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="/spec/">
+<style>
+body { font-family: Georgia, serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #2c2c2c; background: #fafaf8; line-height: 1.6; }
+header a { color: #888; text-decoration: none; margin-right: 1.2rem; }
+h1 { margin-bottom: 0.25rem; } h2 { margin-top: 2.2rem; } h3 { margin-top: 1.6rem; }
+.subtitle { color: #888; margin-top: 0; }
+code, .urn { font-family: monospace; background: #f0efeb; padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0efeb; padding: 1rem; overflow-x: auto; border-radius: 4px; line-height: 1.45; } pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+td, th { padding: 6px 12px 6px 0; vertical-align: top; text-align: left; border-bottom: 1px solid #e6e3dc; }
+td:first-child { color: #888; white-space: nowrap; }
+.note { border-left: 3px solid #d8d3c6; padding: 0.2rem 1rem; color: #555; margin: 1.2rem 0; }
+footer { margin-top: 3rem; color: #888; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">solid-panes</a>
+  <a href="/index.json">index</a>
+  <a href="https://losos.org/">LOSOS</a>
+  <a href="https://github.com/solid-panes/solid-panes.github.io">source</a>
+</header>
+
+<h1>Panes</h1>
+<p class="subtitle">What a pane is, how a host picks one, and what a page can always expect. Draft, 2026-10-15.</p>
+
+<p>A <em>pane</em> is a view of a thing. The thing is a node in a page's linked data: an island of JSON-LD with an <code>@id</code> and a <code>@type</code>. A <em>host</em> is whatever renders the page: LOSOS, a data wiki, a data browser. This page says what passes between them, so that a pane written for one host works in another. It is written down from running code, LOSOS's <code>shell.js</code> and the <a href="https://melvin.me/public/datawiki/">datawiki</a> shim, not invented. Where the two differ, the difference is marked.</p>
+
+<h2>1. The pane</h2>
+<p>A pane is a JavaScript object, the default export of an ES module, with these members:</p>
+<table>
+<tr><td><code>label</code></td><td>A string: the name shown on the tab. Required.</td></tr>
+<tr><td><code>icon</code></td><td>A short string, usually an emoji, shown before the label. Optional.</td></tr>
+<tr><td><code>canHandle(subject, store)</code></td><td>Returns true when the pane wants to render this subject. Required. It may look at anything in the store, not only the type: a schema pane claims any node with a <code>$schema</code>, a coin pane claims any node whose bytes it can decode.</td></tr>
+<tr><td><code>render(subject, store, container, rawData)</code></td><td>Renders the subject into the container element. Required. Returns nothing the host relies on.</td></tr>
+</table>
+<p>The arguments:</p>
+<table>
+<tr><td><code>subject</code></td><td>A named node, <code>{ termType: 'NamedNode', value }</code>, where <code>value</code> is the node's <code>@id</code> resolved against the page. A fragment such as <code>#this</code> or <code>#me</code> resolves to the page's own address plus the fragment.</td></tr>
+<tr><td><code>store</code></td><td>Answers <code>store.get(iri)</code> with the node for that IRI, or null. A host may offer more (LOSOS's LION store does); a pane that wants to run everywhere uses only <code>get</code>.</td></tr>
+<tr><td><code>container</code></td><td>An empty element the pane owns until the host replaces it.</td></tr>
+<tr><td><code>rawData</code></td><td>The island as parsed, before any processing. Optional; a pane falls back to <code>store.get(subject)</code>.</td></tr>
+</table>
+<pre><code>export default {
+  label: 'coin', icon: '🪙',
+  canHandle(subject, store) {
+    const node = store.get(subject)
+    return !!node &amp;&amp; [].concat(node['@type']).includes('TransactionOutput')
+  },
+  render(subject, store, container, rawData) {
+    const node = rawData || store.get(subject)
+    container.textContent = `${node.txid}:${node.vout}`
+  }
+}</code></pre>
+<div class="note">SolidOS's pane object (<code>name</code>, <code>icon</code>, <code>label(subject, context)</code> returning a string or null, <code>render(subject, context)</code>) maps onto this: its <code>label</code> is <code>canHandle</code> and <code>label</code> in one. A host may wrap one as the other.</div>
+
+<h2>2. Where panes come from</h2>
+<p>A host finds panes in three places. All three may be present; the order in section 3 says which wins.</p>
+<table>
+<tr><td>local</td><td>Panes the page or the host ships: <code>&lt;script data-pane src="…"&gt;</code> tags (LOSOS), or a directory convention such as <code>panes/&lt;type&gt;.js</code> loaded for every <code>@type</code> on the page (datawiki). The directory is a registry whose index is the file system.</td></tr>
+<tr><td>the node</td><td>A node may name its own view: <code>ui:view</code> (<code>http://www.w3.org/ns/ui#view</code>), a URL of a pane module.</td></tr>
+<tr><td>the registry</td><td>This site. <a href="/reverse-index.json"><code>reverse-index.json</code></a> maps a type IRI to a manifest; the manifest's <code>pane</code> is the module's URL and its <code>schema</code> the type's JSON Schema. Manifest fields are in the <a href="/">README</a>.</td></tr>
+</table>
+<p>A registry key is a full IRI (<code>urn:solid:Note</code>). A page may type its node with a short name; a host may match on the local name after the last <code>:</code>, <code>/</code> or <code>#</code>. Before asking a registry pane, the host sets <code>$schema</code> on the node from the manifest if the node has none, as <a href="/auto-schema.js"><code>autoSchema</code></a> does, so a schema-driven pane can take it.</p>
+<p>A pane module is fetched with <code>import()</code>. Its server must allow cross-origin module loads, or it cannot be used from another site.</p>
+
+<h2>3. How a host chooses</h2>
+<p>For each node on the page, in order; the first step that yields a pane whose <code>canHandle</code> is true wins:</p>
+<ol>
+<li><b>Local panes</b>, each asked with <code>canHandle</code>.</li>
+<li><b>The node's own <code>ui:view</code></b>, loaded and asked.</li>
+<li><b>The registry</b>, by the node's <code>@type</code>, loaded and asked.</li>
+</ol>
+<p>A host that shows one view renders the winner. A host that shows tabs offers every pane that said yes, in that order, and renders the first. It may remember the tab the reader chose, per page.</p>
+<p>A <code>canHandle</code> that throws is a no. A pane that fails to load is skipped with a warning; it never stops the page.</p>
+<div class="note"><b>Two amendments, from the datawiki, not in LOSOS.</b> (a) When a local pane <em>verifies</em> the node, checking hashes, signatures or bytes, a view the node named for itself is shown after it, never first: a page must not get to choose the thing that checks it. (b) <b>The floor:</b> whatever the three steps yield, the host adds two views last, an <em>outline</em> of the node's properties with links, and the <em>raw</em> JSON. A page with no pane still renders, and what the data says is never hidden behind a view. Hosts are encouraged to adopt both.</div>
+
+<h2>4. What a pane may assume, and may not</h2>
+<ul>
+<li>It may assume the subject's node is in the store and that <code>@id</code> is resolved.</li>
+<li>It may not assume the store has anything beyond <code>get</code>, that the page has one island, or that it is the only pane rendered.</li>
+<li>It owns the container until the host replaces it, and nothing else in the document.</li>
+<li>It must not fetch code the page did not name. Data it fetches is the page's business to allow; a pane that verifies says what it checked and what it only displays.</li>
+</ul>
+
+<h2>5. Conformance</h2>
+<p>A <b>host</b> conforms when it loads panes of the shape in section 1, from at least the local source in section 2, and chooses in the order of section 3. A <b>pane</b> conforms when it has the four members in section 1 and uses only <code>store.get</code> of the store. A <b>registry</b> conforms when its index maps type IRIs to manifests with a <code>pane</code> URL.</p>
+<p>Known hosts: <a href="https://losos.org/">LOSOS</a> (local, node, registry; single view or tabs), the <a href="https://melvin.me/public/datawiki/">datawiki</a> shim (local by directory, node after verifying panes, registry, the floor; tabs). SolidOS's data browser predates this page and uses the older shape in the note above.</p>
+
+<footer>Draft. Edit on <a href="https://github.com/solid-panes/solid-panes.github.io/edit/gh-pages/spec/index.html">GitHub</a>. Licence as the repository.</footer>
+</body>
+</html>
