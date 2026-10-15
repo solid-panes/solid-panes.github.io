@@ -4,6 +4,12 @@ A pane-and-schema registry for [urn:solid](https://urn-solid.com/) types — bri
 
 One manifest per type, mapping a `urn:solid:` identifier to a pane URL plus an optional schema URL. LOSOS apps that opt in get auto-form rendering for any data tagged with a known type — no per-file `$schema` declaration needed.
 
+## Spec
+
+[/spec/](https://solid-panes.github.io/spec/) says what a pane is (`label`, `icon`, `canHandle(subject, store)`,
+`render(subject, store, container, rawData)`), where a host finds panes (local, the node's `ui:view`, this registry)
+and in what order it chooses, written down from LOSOS and the datawiki shim.
+
 ## What's in a manifest
 
 ```json
